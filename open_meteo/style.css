@@ -51,7 +51,7 @@ form {
 
 .outdoor_yes {
   background-color: rgb(173, 205, 173);
-  padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+  padding: 0.3rem 0.4rem 0.2rem 0.4rem;
   border-radius: 10px;
 }
 
@@ -178,7 +178,7 @@ input[type="checkbox"] {
   text-align: center;
   color: #999;
   font-size: 13px;
-  padding: 2rem 0rem 0rem 0rem;
+  padding: 2rem 0rem;
 }
 
 .hidden {

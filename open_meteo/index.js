@@ -3,15 +3,15 @@ import { getWeather, wwCodes, badWeather } from "./weather_open_meteo.js";
 
 // const for all functions
 // const savedTask = localStorage.getItem("data");
-const task_input = document.querySelector(".task_text");
-const create_task_btn = document.querySelector(".create_task");
-const todo_list = document.querySelector(".tasks");
-const done_list = document.querySelector(".done");
-const task_arr = [];
-const date = document.querySelector(".date");
-const outdoor = document.querySelector(".outdoor_check");
-create_task_btn.addEventListener("click", createTask);
-const empty_task = document.querySelector(".empty-state");
+const task_input = document.querySelector(".task_text"); //input for the task text
+const create_task_btn = document.querySelector(".create_task"); // the button for the create task
+const todo_list = document.querySelector(".tasks"); //to_list the class ul for tasks
+const done_list = document.querySelector(".done"); //done_list the class ul for done
+const task_arr = []; //empty array, where you add the objects in the createTask
+const date = document.querySelector(".date"); //input for the date
+const outdoor = document.querySelector(".outdoor_check"); //input to check if the task is outdoor
+const empty_task = document.querySelector(".empty-state"); //the class for the no tasks completed yet
+create_task_btn.addEventListener("click", createTask); //EventListener to the create button when you click
 
 task_input.addEventListener("keypress", (e) => {
   // If the user presses the "Enter" key on the keyboard
@@ -24,8 +24,8 @@ task_input.addEventListener("keypress", (e) => {
 });
 
 function createTask() {
-  if (!task_input.value.trim() || !date.value) return;
-  const userDate = date.value;
+  if (!task_input.value.trim() || !date.value) return; // if the
+  const userDate = date.value; //userDate is the date and value
   console.log("userDate", userDate);
   console.log("Make task");
   const task_obj = {
@@ -45,11 +45,12 @@ function createTask() {
   renderList();
 
   getWeather(task_obj.taskDate, (data) => {
+    //get the weather from the API
     console.log("API data:", data);
     if (!data || !data.daily) {
       task_obj.weatherIcon = "unknown.png";
       task_obj.unavailable = false;
-      task_obj.error = "Kunne ikke hente vejrdata";
+      task_obj.error = "Could not get the weather";
       renderList();
       return;
     }
@@ -60,11 +61,12 @@ function createTask() {
     console.log("RAW CODE:", data.daily.weathercode[0]);
 
     if (task_obj.outdoor && badWeather(task_obj.weatherCode)) {
-      task_obj.unavailable = true;
+      // if the object outdoor and badWeather (weathercode is the wrong number)
+      task_obj.unavailable = true; // then the task object is unavailable = means it´s true
     }
     renderList();
 
-    console.log("task_obj", task_obj);
+    console.log("task_obj", task_obj); //checking to see all the objects in the console log
   });
 
   task_input.value = "";
@@ -75,7 +77,7 @@ function createTask() {
 
 function createTaskElement(task) {
   const li = document.createElement("li");
-  li.classList.add("task-item");
+  li.classList.add("task-item"); // adding a class to the li element
   li.innerHTML = ` <div class="task-top"><input type="checkbox" ${task.taskDone ? "checked" : ""}/>
   <div class="task-info">
   <p>${task.taskTxt}</p>
@@ -84,7 +86,7 @@ function createTaskElement(task) {
   <button class="delete">X</button></div>
    <div class="task-bottom">
     <p class="date_text">${task.taskDate}</p>
-   ${!task.error && task.weatherIcon ? `<img class="weather-icon" src="/outdoorpakke/png/${task.weatherIcon}" alt="weather icon" />` : ""}
+   ${!task.error && task.weatherIcon ? `<img class="weather-icon" src="/png/${task.weatherIcon}" alt="weather icon" />` : ""}
    
  </div>`;
   const checkbox = li.querySelector('[type = "checkbox"]');
@@ -108,38 +110,40 @@ function renderList() {
   todo_list.innerHTML = "";
   done_list.innerHTML = "";
   task_arr.forEach((task) => {
+    // for each task createTaskElement, if task.unavailable add the class "unavailable"
     const li = createTaskElement(task);
     if (task.unavailable) {
       li.classList.add("unavailable");
       li.insertAdjacentHTML(
         "beforeend",
         `<div class="weather-bad">
-        <p class="warning">Vejret er ikke godt nok til "${task.taskTxt}"</p> </div>`,
+        <p class="warning">The weather is not good enough for"${task.taskTxt}"</p> </div>`,
       );
     }
 
     if (task.error) {
       li.insertAdjacentHTML(
-        "beforeend",
-        `<p class="warning">⚠ ${task.error}</p>`,
+        "beforeend", //before the element and after it´s last child
+        `<p class="warning">⚠ ${task.error}</p>`, // writing the error text "Could not find the weather"
       );
     }
     if (task.outdoor && !task.unavailable) {
       li.classList.add("outdoor-ok");
       li.insertAdjacentHTML(
         "beforeend",
-        `<div class="weather-ok fade-in">Perfekt vejr til "${task.taskTxt}"
+        `<div class="weather-ok fade-in">Perfect weather for "${task.taskTxt}"
         </div>`,
       );
     }
 
-    (task.taskDone ? done_list : todo_list).appendChild(li);
+    (task.taskDone ? done_list : todo_list).appendChild(li); // if taskDone is true make done_list else make todo_list
   });
 
   if (done_list.children.length === 0) {
+    // if the done_list object lenght is 0, remove the hidden class
     empty_task.classList.remove("hidden");
   } else {
-    empty_task.classList.add("hidden");
+    empty_task.classList.add("hidden"); // else add the hidden class
   }
 
   localStorage.setItem("data", JSON.stringify(task_arr));
