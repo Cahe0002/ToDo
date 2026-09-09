@@ -16,6 +16,7 @@ create_task_btn.addEventListener("click", createTask); //EventListener to the cr
 const dateInput = document.querySelector(".date");
 
 dateInput.addEventListener("click", () => {
+  // when user is clicking, show the whole date input
   dateInput.showPicker();
 });
 

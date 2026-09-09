@@ -130,7 +130,8 @@ input[type="date"] {
 .delete {
   appearance: none;
   -webkit-appearance: none;
-  color: #202020;
+  background-color: transparent;
+  color: inherit;
   border: none;
   cursor: pointer;
 }
@@ -180,11 +181,12 @@ select {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
-  white-space: nowrap;
 }
 
 .input_user input {
   width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 :focus-visible {
