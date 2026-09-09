@@ -117,7 +117,7 @@ function renderList() {
       li.insertAdjacentHTML(
         "beforeend",
         `<div class="weather-bad">
-        <p class="warning">The weather is not good enough for"${task.taskTxt}"</p> </div>`,
+        <p class="warning">The weather is not good enough for "${task.taskTxt}"</p> </div>`,
       );
     }
 

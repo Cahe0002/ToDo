@@ -102,6 +102,13 @@ input[type="checkbox"] {
   width: auto;
 }
 
+input[type="text"],
+input[type="date"] {
+  height: 38px;
+  line-height: 38px;
+  padding: 0 12px;
+}
+
 .outdoor_check[type="checkbox"] {
   margin: -0.3rem 0.3rem 0 0;
   vertical-align: middle;
@@ -110,6 +117,9 @@ input[type="checkbox"] {
 }
 
 .delete {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 38px;
   background-color: transparent;
   border: none;
   cursor: pointer;
