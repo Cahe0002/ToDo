@@ -179,13 +179,12 @@ select {
 
 .input_user {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 10px;
 }
 
 .input_user input {
-  min-width: 0;
-  box-sizing: border-box;
+  width: 100%;
 }
 
 :focus-visible {
@@ -250,7 +249,6 @@ select {
   }
 
   .input_user {
-    grid-template-columns: 1fr;
     gap: 10px;
   }
 }
