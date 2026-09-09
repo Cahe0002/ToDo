@@ -1,0 +1,219 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+}
+
+main {
+  display: grid;
+  margin: 2rem;
+  width: calc(
+    100% - 4rem
+  ); /* Width same size as the parent, but with -4rem on the sides */
+}
+
+h2 {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.task-item {
+  margin-bottom: 12px;
+  border-radius: 10px;
+  margin: 0.8rem 0rem;
+  padding: 0.8rem;
+  background-color: #f5f5f5;
+  list-style: none;
+}
+
+form {
+  background-color: #f5f5f5;
+  border-style: none;
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.outdoor_text {
+  display: grid;
+}
+
+.outdoor_yes {
+  background-color: rgb(173, 205, 173);
+  padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+  border-radius: 10px;
+}
+
+.task-top {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.task-info {
+  flex: 1;
+}
+
+.tasks {
+  height: 200px;
+  overflow-y: auto;
+}
+
+.done {
+  height: 200px;
+  overflow-y: auto;
+}
+
+.weather-icon {
+  width: 40px;
+  height: 40px;
+  margin-top: -6px;
+}
+
+.outdoor {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+input {
+  background-color: #f5f5f5;
+  border: solid 0.8px #202020;
+  padding: 0.5rem;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+input[type="checkbox"] {
+  accent-color: black;
+  vertical-align: middle;
+  width: auto;
+}
+
+.outdoor_check[type="checkbox"] {
+  margin: -0.3rem 0.3rem 0 0;
+  vertical-align: middle;
+  width: auto;
+  accent-color: rgb(173, 205, 173);
+}
+
+.delete {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.task-bottom {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  gap: 10px;
+}
+
+.date_text {
+  display: flex;
+  align-items: center;
+}
+
+.create_task {
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(231, 193, 143);
+  color: #202020;
+  padding: 0.5rem;
+  margin-top: 0.8rem;
+  font-weight: 600;
+  width: 100%;
+  cursor: pointer;
+}
+
+.create_task:hover {
+  background-color: rgb(252, 213, 162);
+}
+
+.input_label {
+  font-size: 12px;
+  color: #666;
+  display: block;
+  margin-bottom: 0.1rem;
+}
+
+.input_user {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.input_user input {
+  width: 100%;
+}
+
+:focus-visible {
+  outline: solid 1px black;
+}
+
+.weather-bad,
+.weather-ok {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.empty-state {
+  text-align: center;
+  color: #999;
+  font-size: 13px;
+  padding: 2rem 0rem 0rem 0rem;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    margin-top: 5rem;
+  }
+
+  .h2_done {
+    margin-bottom: 2.2rem;
+  }
+
+  .tasks,
+  .done {
+    height: auto;
+    overflow-y: visible;
+  }
+
+  .empty-state {
+    padding: 0rem;
+  }
+
+  .input_user {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}

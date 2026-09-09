@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="general.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>To do</title>
+    <script type="module" src="weather_open_meteo.js" defer></script>
+    <script type="module" src="index.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <section>
+        <h2>ToDo</h2>
+        <div class="outdoor">
+          <label>
+            <input type="checkbox" class="outdoor_check" />Outdoor
+          </label>
+        </div>
+        <form>
+          <div class="input_user">
+            <label>
+              <span class="input_label">Date</span>
+              <input
+                class="date"
+                type="date"
+                name="task"
+                min="2026-09-07"
+                max="2026-09-22"
+                required
+              />
+            </label>
+            <label>
+              <span class="input_label">Task</span>
+              <input
+                type="text"
+                name="check"
+                class="task_text"
+                placeholder="Add task"
+                required
+            /></label>
+          </div>
+          <button class="create_task" type="button">Make task</button>
+        </form>
+
+        <div id="create">
+          <ul class="tasks"></ul>
+        </div>
+      </section>
+      <!-- <button class="done_task">Done</button> -->
+      <section>
+        <h2 class="h2_done">Done</h2>
+        <p class="empty-state">No tasks completed yet</p>
+
+        <div id="status"></div>
+
+        <ul class="done"></ul>
+      </section>
+    </main>
+  </body>
+</html>
