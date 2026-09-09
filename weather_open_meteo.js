@@ -1,4 +1,4 @@
-import { loadJSON } from "./utils_lib.js";
+import { loadJSON } from "./utils_lib/utils_lib.js";
 
 export function getWeather(date, callback) {
   loadJSON(
