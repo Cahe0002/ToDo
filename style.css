@@ -178,13 +178,19 @@ select {
 }
 
 .input_user {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
   gap: 10px;
 }
 
+.input_user > * {
+  flex: 1 1 0; /* tvinger begge til at dele pladsen ligeligt, uanset indhold */
+  min-width: 0; /* forhindrer Safari's indbyggede date-kontrol i at presse layoutet */
+  width: 0; /* ekstra sikkerhed - flex-basis styrer den faktiske bredde i stedet */
+}
+
 .input_user input {
-  width: 100%;
+  width: 100%; /* fylder sin flex-celle fuldt ud */
+  min-width: 0;
 }
 
 :focus-visible {
