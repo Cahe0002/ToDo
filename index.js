@@ -3,11 +3,11 @@ import { getWeather, wwCodes, badWeather } from "./weather_open_meteo.js";
 
 // const for all functions
 // const savedTask = localStorage.getItem("data");
+let task_arr = []; //empty array, where you add the objects in the createTask
 const task_input = document.querySelector(".task_text"); //input for the task text
 const create_task_btn = document.querySelector(".create_task"); // the button for the create task
 const todo_list = document.querySelector(".tasks"); //to_list the class ul for tasks
 const done_list = document.querySelector(".done"); //done_list the class ul for done
-const task_arr = []; //empty array, where you add the objects in the createTask
 const date = document.querySelector(".date"); //input for the date
 const outdoor = document.querySelector(".outdoor_check"); //input to check if the task is outdoor
 const empty_task = document.querySelector(".empty-state"); //the class for the no tasks completed yet

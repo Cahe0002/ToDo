@@ -55,6 +55,10 @@ form {
   border-radius: 10px;
 }
 
+.outdoor_yes:empty {
+  display: none;
+}
+
 .task-top {
   display: flex;
   align-items: start;
@@ -120,7 +124,6 @@ input[type="date"] {
 .delete {
   appearance: none;
   -webkit-appearance: none;
-  height: 38px;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -188,7 +191,7 @@ input[type="date"] {
 .empty-state {
   text-align: center;
   color: #999;
-  font-size: 13px;
+  font-size: 14px;
   padding: 2rem 0rem;
 }
 
@@ -226,7 +229,12 @@ input[type="date"] {
   }
 
   .empty-state {
+    font-size: 14px;
     padding: 0rem;
+  }
+
+  input {
+    font-size: 14px;
   }
 
   .input_user {
