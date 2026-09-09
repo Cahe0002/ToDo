@@ -105,8 +105,9 @@ input[type="checkbox"] {
 input[type="text"],
 input[type="date"] {
   height: 38px;
-  line-height: 38px;
+  line-height: normal;
   padding: 0 12px;
+  cursor: pointer;
 }
 
 .outdoor_check[type="checkbox"] {

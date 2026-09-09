@@ -13,6 +13,12 @@ const outdoor = document.querySelector(".outdoor_check"); //input to check if th
 const empty_task = document.querySelector(".empty-state"); //the class for the no tasks completed yet
 create_task_btn.addEventListener("click", createTask); //EventListener to the create button when you click
 
+const dateInput = document.querySelector(".date");
+
+dateInput.addEventListener("click", () => {
+  dateInput.showPicker();
+});
+
 task_input.addEventListener("keypress", (e) => {
   // If the user presses the "Enter" key on the keyboard
   if (e.key === "Enter" && task_input.value !== "") {
