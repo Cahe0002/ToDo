@@ -28,6 +28,12 @@ h2 {
   margin-top: 1rem;
 }
 
+button {
+  color: #000;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  outline: none;
+}
+
 .task-item {
   margin-bottom: 12px;
   border-radius: 10px;
@@ -124,10 +130,15 @@ input[type="date"] {
 .delete {
   appearance: none;
   -webkit-appearance: none;
-  background-color: transparent;
+  color: #202020;
   border: none;
   cursor: pointer;
 }
+
+select {
+  color: #202020;
+}
+
 .task-bottom {
   margin-top: 20px;
   display: flex;
