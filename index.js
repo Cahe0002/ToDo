@@ -87,14 +87,15 @@ function createTaskElement(task) {
   li.innerHTML = ` <div class="task-top"><input type="checkbox" ${task.taskDone ? "checked" : ""}/>
   <div class="task-info">
   <p>${task.taskTxt}</p>
+
   </div>
   <p class="outdoor_yes">${task.outdoor ? "Outdoor" : ""}</p>
   <button class="delete">X</button></div>
    <div class="task-bottom">
     <p class="date_text">${task.taskDate}</p>
-   ${!task.error && task.weatherIcon ? `<img class="weather-icon" src="png/${task.weatherIcon}" alt="weather icon" />` : ""}
-   
- </div>`;
+   ${!task.error && task.weatherIcon ? `<img class="weather-icon" src="png/${task.weatherIcon}" alt="weather icon" />` : ""} 
+ </div><p class="min_max">Min ${task.weatherMin}° - Max ${task.weatherMax}°</p>`;
+
   const checkbox = li.querySelector('[type = "checkbox"]');
   checkbox.addEventListener("change", (e) => {
     task.taskDone = e.target.checked;

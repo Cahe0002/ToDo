@@ -196,6 +196,12 @@ input[type="date"] {
   display: none;
 }
 
+.min_max {
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+}
+
 @media (min-width: 600px) {
   main {
     display: grid;

@@ -21,6 +21,7 @@ export function dataLoaded(data) {
 }
 
 export const wwCodes = {
+  //array WMO kode
   0: "clearsky_day.png",
   1: "fair_day.png",
   2: "partlycloudy_day.png",
@@ -55,8 +56,8 @@ export const wwCodes = {
 export function badWeather(code) {
   return (
     (code >= 51 && code <= 67) || // WMO Weather interpretation codes
-    (code >= 80 && code <= 82) ||
-    (code >= 96 && code <= 99)
+    (code >= 80 && code <= 82) || // >= betyder større end eller lig med
+    (code >= 96 && code <= 99) // <= betyder mindre end eller lig med
   );
 }
 
