@@ -86,7 +86,7 @@ function createTaskElement(task) {
   <button class="delete">X</button></div>
    <div class="task-bottom">
     <p class="date_text">${task.taskDate}</p>
-   ${!task.error && task.weatherIcon ? `<img class="weather-icon" src="/png/${task.weatherIcon}" alt="weather icon" />` : ""}
+   ${!task.error && task.weatherIcon ? `<img class="weather-icon" src="png/${task.weatherIcon}" alt="weather icon" />` : ""}
    
  </div>`;
   const checkbox = li.querySelector('[type = "checkbox"]');
