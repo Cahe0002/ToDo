@@ -1,8 +1,9 @@
 // import from the other js file
 import { getWeather, wwCodes, badWeather } from "./weather_open_meteo.js";
+// const savedTask = localStorage.getItem("data");
 
 // const for all functions
-// const savedTask = localStorage.getItem("data");
+
 let task_arr = []; //empty array, where you add the objects in the createTask
 const task_input = document.querySelector(".task_text"); //input for the task text
 const create_task_btn = document.querySelector(".create_task"); // the button for the create task
@@ -11,9 +12,10 @@ const done_list = document.querySelector(".done"); //done_list the class ul for 
 const date = document.querySelector(".date"); //input for the date
 const outdoor = document.querySelector(".outdoor_check"); //input to check if the task is outdoor
 const empty_task = document.querySelector(".empty-state"); //the class for the no tasks completed yet
-create_task_btn.addEventListener("click", createTask); //EventListener to the create button when you click
+const dateInput = document.querySelector(".date"); //the date input to show it when clicking
 
-const dateInput = document.querySelector(".date");
+create_task_btn.addEventListener("click", createTask);
+//EventListener to the create button when you click
 
 dateInput.addEventListener("click", () => {
   // when user is clicking, show the whole date input
@@ -31,7 +33,7 @@ task_input.addEventListener("keypress", (e) => {
 });
 
 function createTask() {
-  if (!task_input.value.trim() || !date.value) return; // if the
+  if (!task_input.value.trim() || !date.value) return;
   const userDate = date.value; //userDate is the date and value
   console.log("userDate", userDate);
   console.log("Make task");
