@@ -17,6 +17,7 @@ body {
 
 main {
   display: grid;
+  margin: 0 auto;
   margin: 2rem;
   width: calc(
     100% - 4rem
@@ -44,6 +45,7 @@ button {
 }
 
 form {
+  max-width: 100%;
   background-color: #f5f5f5;
   border-style: none;
   padding: 1rem;

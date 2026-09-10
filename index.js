@@ -1,12 +1,10 @@
 // import from the other js file
 import { getWeather, wwCodes, badWeather } from "./weather_open_meteo.js";
-// const savedTask = localStorage.getItem("data");
 
 // const for all functions
 
 let task_arr = []; //empty array, where you add the objects in the createTask
 const task_input = document.querySelector(".task_text"); //input for the task text
-const create_task_btn = document.querySelector(".create_task"); // the button for the create task
 const todo_list = document.querySelector(".tasks"); //to_list the class ul for tasks
 const done_list = document.querySelector(".done"); //done_list the class ul for done
 const date = document.querySelector(".date"); //input for the date
@@ -14,8 +12,10 @@ const outdoor = document.querySelector(".outdoor_check"); //input to check if th
 const empty_task = document.querySelector(".empty-state"); //the class for the no tasks completed yet
 const empty_task_todo = document.querySelector(".empty-state-todo");
 const dateInput = document.querySelector(".date"); //the date input to show it when clicking
+const form = document.querySelector("form");
 
-create_task_btn.addEventListener("click", createTask);
+form.addEventListener("submit", createTask);
+
 //EventListener to the create button when you click
 
 dateInput.addEventListener("click", () => {
@@ -23,18 +23,9 @@ dateInput.addEventListener("click", () => {
   dateInput.showPicker();
 });
 
-task_input.addEventListener("keypress", (e) => {
-  // If the user presses the "Enter" key on the keyboard
-  if (e.key === "Enter" && task_input.value !== "") {
-    // Cancel the default action, if needed
-    e.preventDefault();
-    // Trigger the button element with a click
-    create_task_btn.click();
-  }
-});
-
-function createTask() {
-  if (!task_input.value.trim() || !date.value) return;
+function createTask(e) {
+  e.preventDefault();
+  // if (!task_input.value.trim() || !date.value) return;
   const userDate = date.value; //userDate is the date and value
   console.log("userDate", userDate);
   console.log("Make task");
@@ -171,6 +162,7 @@ function renderList() {
 // task_arr = value
 
 const storageData = JSON.parse(localStorage.getItem("data"));
-console.log(storageData);
-
-console.log(`${localStorage.getItem("data")}`);
+if (storageData) {
+  task_arr = storageData;
+}
+renderList();
