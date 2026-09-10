@@ -130,6 +130,7 @@ function renderList() {
       );
     }
     if (task.outdoor && !task.unavailable) {
+      // ! means NOT
       li.classList.add("outdoor-ok");
       li.insertAdjacentHTML(
         "beforeend",
