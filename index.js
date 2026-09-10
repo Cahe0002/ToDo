@@ -12,6 +12,7 @@ const done_list = document.querySelector(".done"); //done_list the class ul for 
 const date = document.querySelector(".date"); //input for the date
 const outdoor = document.querySelector(".outdoor_check"); //input to check if the task is outdoor
 const empty_task = document.querySelector(".empty-state"); //the class for the no tasks completed yet
+const empty_task_todo = document.querySelector(".empty-state-todo");
 const dateInput = document.querySelector(".date"); //the date input to show it when clicking
 
 create_task_btn.addEventListener("click", createTask);
@@ -39,11 +40,11 @@ function createTask() {
   console.log("Make task");
   const task_obj = {
     //objects for the array
-    taskTxt: task_input.value,
-    taskDone: false,
-    id: self.crypto.randomUUID(),
-    taskDate: date.value,
-    outdoor: outdoor.checked,
+    taskTxt: task_input.value, //the taskTxt is the input + value
+    taskDone: false, //the taskDone is set to false, if it´s not true
+    id: self.crypto.randomUUID(), //id with the build in randomUUID() method
+    taskDate: date.value, //taskDate is the date + value
+    outdoor: outdoor.checked, // outdoor is the outdoor + checked
     weatherCode: null,
     weatherMax: null,
     weatherMin: null,
@@ -154,6 +155,13 @@ function renderList() {
     empty_task.classList.remove("hidden");
   } else {
     empty_task.classList.add("hidden"); // else add the hidden class
+  }
+
+  if (todo_list.children.length === 0) {
+    // if the done_list object lenght is 0, remove the hidden class
+    empty_task_todo.classList.remove("hidden");
+  } else {
+    empty_task_todo.classList.add("hidden"); // else add the hidden class
   }
 
   localStorage.setItem("data", JSON.stringify(task_arr));

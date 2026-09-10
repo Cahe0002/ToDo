@@ -206,6 +206,14 @@ select {
   padding: 2rem 0rem;
 }
 
+.empty-state-todo {
+  margin-top: 1.2rem;
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+  padding: 2rem 0rem;
+}
+
 .hidden {
   display: none;
 }
@@ -242,6 +250,13 @@ select {
   .empty-state {
     font-size: 14px;
     padding: 0rem;
+  }
+
+  .empty-state-todo {
+    margin-top: 1.2rem;
+    text-align: center;
+    color: #999;
+    padding: 2rem 0rem;
   }
 
   input {
