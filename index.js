@@ -25,7 +25,7 @@ dateInput.addEventListener("click", () => {
 
 function createTask(e) {
   e.preventDefault();
-  // if (!task_input.value.trim() || !date.value) return;
+
   const userDate = date.value; //userDate is the date and value
   console.log("userDate", userDate);
   console.log("Make task");
